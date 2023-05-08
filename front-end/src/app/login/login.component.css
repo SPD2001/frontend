@@ -1,4 +1,19 @@
 .loginpage
 {
     text-align: center;
+    color: white;
+    background:rgb(2, 2, 1);
+    padding: 1;
+    text-align: center; 
+    height: 50px;
+}
+.details 
+{
+    border-style: groove;
+}
+.text
+{
+    text-align: center;
+    height: 25px;
+    background-image: linear-gradient(to left,  rgb(198, 198, 207), white);
 }
