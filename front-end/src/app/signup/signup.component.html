@@ -1,1 +1,27 @@
-<p>signup works!</p>
+<form action="signup">
+    <div class="signuppage">
+      <h1>Register</h1>
+      <div style="background-color: #a4a29f; height: 2000px;">
+      <br>
+      <select class = "text1" name="au" id="admin/user">
+        <option value="adminuser">Enter admin/user</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
+      <pre></pre>
+      <input class = "text" type="text" placeholder="Enter email" id="email" required>
+      <pre></pre>
+      <input class = "text" type="username" placeholder="Enter Username" id="username" required>
+      <pre></pre>
+      <input class = "text" type="phonenumber" placeholder="Enter Mobile Number" id="mobileNumber" required>
+      <pre></pre>
+      <input class = "text" type="password" placeholder="Password" id="passward" required>
+      <pre></pre>
+      <input class = "text" type="password" placeholder="Confirm Password" id="confirmPassward" required>
+      <pre></pre>
+      <pre></pre>
+      <button type="submit" class="signupbtn" id = "submitButton">Submit</button>
+      <nav class = "link" style="color: black;">Already a user? <a routerLink="/login" class="nav-link" routerLinkActive="active" id="signupLink">Login</a></nav>
+    </div>
+</div>
+</form>

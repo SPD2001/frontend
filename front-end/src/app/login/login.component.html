@@ -1,15 +1,35 @@
-<form action="login">
-    <div class="loginpage">
-      <h1>Login</h1>
+
+              <form class="loginpage" action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onSubmit()" >
+                <div class="loginpage">
+                <h1>Login</h1>
       <div style="background-color: #a4a29f; height: 2000px;">
-      <br>
-      <input class = "text" type="text" placeholder="Enter email" id="email" required>
-      <pre></pre>
-      <input class = "text" type="password" placeholder="Enter Password" id="passward" required>
-      <pre></pre>
-      <pre></pre>
-      <button type="submit" class="loginbtn" id = "loginButton">Login</button>
-      <nav class = "link" style="color: black;">New User/admin? <a routerLink="/signup" class="nav-link" routerLinkActive="active" id="signupLink">Sign Up</a></nav>
-    </div>
-</div>
-</form>
+        <br>
+                <input type="email"  class="text" name="email"  id="email" placeholder="Enter email"  [(ngModel)]="formdata.email" #email="ngModel" required>
+              <br>
+                <span style="color: red;" class="text-danger" *ngIf="this.submit&&email.errors?.['required']" >
+                  Email is required
+                  <br>
+                </span>
+                <br>
+                <input  class = "text" type="password" placeholder="Enter Password" id="passward"  name="password" [(ngModel)]="formdata.password" #password="ngModel" required >
+                <br>
+                <span style="color: red;" class="text-danger" *ngIf="this.submit&&password.errors?.['required']">
+                  Password is required.
+                </span>
+                <br>
+              <div class="form-group">
+                  <div  class="text-center" *ngIf="this.loading">
+                      <div class="spinner-border text-primary " role="status">
+                      <span style="color: black;" class="sr-only">Loading...</span>
+                      </div>
+                  </div>
+                  <span class="text-danger" *ngIf="this.errorMessage" >
+                  <p style="color: black;" [innerText]="this.errorMessage"></p>
+                  </span>
+                  <br>
+                  <input  type="submit" class="loginbtn" [disabled]="this.loading"  value="Login" (click)="submit=true">
+              <nav  style="color: black;">New User/admin? <a routerLink="/signup" class="nav-link" routerLinkActive="active" id="signupLink">Sign Up</a></nav>
+            </div>  
+            </div>
+              </div>
+              </form>
