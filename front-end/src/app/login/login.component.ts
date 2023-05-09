@@ -15,9 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private auth:AuthService) { }
 
   ngOnInit(): void {
-    this.auth.canAuthenticate();
+    this.auth.loginAuthenticate();
   }
-
   onSubmit(){
     this.loading=true;
     this.auth.login(this.formdata.email,this.formdata.password)
@@ -25,7 +24,7 @@ export class LoginComponent implements OnInit {
         next:(data: { idToken: string; })=>{
             this.auth.storeToken(data.idToken);
             console.log('logged user token is '+data.idToken);
-            this.auth.canAuthenticate();
+            this.auth.loginAuthenticate();
         },
         error:(data: { error: { error: { message: string; }; }; })=>{
             if (data.error.error.message=="INVALID_PASSWORD" || data.error.error.message=="INVALID_EMAIL") {
